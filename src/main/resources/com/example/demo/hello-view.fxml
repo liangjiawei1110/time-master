@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="898.0" prefWidth="516.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="com.example.demo.HelloController">
+<VBox alignment="CENTER" prefHeight="898.0" prefWidth="516.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+    <Label fx:id="welcomeText" />
+    <Button onAction="#onHelloButtonClick" prefHeight="34.0" prefWidth="63.0" text="Hello!" />
     <padding>
         <Insets bottom="30.0" left="40.0" right="10.0" top="50.0" />
     </padding>
-   <AmbientLight color="#80487d" lightOn="true" />
-   <ParallelCamera />
-   <PointLight color="CHARTREUSE" lightOn="true" />
-   <TextFlow prefHeight="86.0" prefWidth="466.0" />
-   <TextFlow prefHeight="200.0" prefWidth="200.0" />
-   <Pane prefHeight="200.0" prefWidth="200.0" />
 
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" prefHeight="34.0" prefWidth="63.0" text="Hello!" />
-   <SplitPane dividerPositions="0.125, 0.25646551724137934" prefHeight="200.0" prefWidth="200.0">
-      <items>
-         <Button mnemonicParsing="false" text="Button" />
-         <Button mnemonicParsing="false" text="Button" />
-         <Button mnemonicParsing="false" text="Button" />
-      </items>
-   </SplitPane>
+
 </VBox>

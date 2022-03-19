@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox alignment="CENTER" prefHeight="612.0" prefWidth="408.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="com.example.demo.HelloController">
+    <padding>
+        <Insets bottom="30.0" left="40.0" right="10.0" top="50.0" />
+    </padding>
+   <Ellipse fill="DODGERBLUE" radiusX="100.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" />
+   <Circle fill="DODGERBLUE" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+
+    <Label fx:id="welcomeText" />
+    <Button onAction="#onHelloButtonClick" prefHeight="34.0" prefWidth="63.0" text="Hello!" />
+</VBox>

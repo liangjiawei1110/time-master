@@ -1,7 +1,6 @@
 It's easier on everyone if all authors working on a shared
 code base are consistent in the way they write their programs.
 We have the following conventions in our code:
-
 asfuqwefha
 * No space after the name of a function in a call
   For example, printf("hello") not printf ("hello").

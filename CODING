@@ -2,35 +2,37 @@ It's easier on everyone if all authors working on a shared
 code base are consistent in the way they write their programs.
 We have the following conventions in our code:
 
+骆驼法则：Java中，除了包名，静态常量等特殊情况，大部分情况下标识符使用骆驼法则，
+即单词之间不使用特殊符号分割，而是通过首字母大写来分割。比如：SupplierName， addNewContract，而不是supplier_name，add_new_contract。
 
-* No space after the name of a function in a call
-  For example, printf("hello") not printf ("hello").
+英文VS拼音：尽量使用通俗易懂的英文单词，如果不会可以向队友求助，实在不行则使用汉语拼音，避免拼音
+与英文混用。比如表示归档，用archive比较好，用pigeonhole则不好，用guiDang
+包名：使用小写字母如com.xxx.settlment，不要com.xxx.Settlement；
 
-* One space after keywords "if", "for", "while", "switch".
-  For example, if (x) not if(x).
+单词间不要用字符隔开，比如com.xxx.settlment.jsfutil，而不要com.xxx.settlement.jsf_util。
 
-* Space before braces.
-  For example, if (x) { not if (x){.
+类名：首字母大写，比如SupplierService，PaymentOrderAction；不要supplierService，paymentOrderAction。
+往往用不同的后缀表达额外的意思——
+方法名：首字母小写，比如addOrder不要AddOrder；动词在前，比如addOrder，不要orderAdd；动词前缀往往表达特定的含义
 
-* Function names are all lower-case separated by underscores.
+每个if、while、for等语句，都不要省略大括号{}
 
-* Beginning-of-line indentation via tabs, not spaces.
+块级别注释：单行时用//，多行时用/* .. */；较短的代码块用空行表示注释作用域；较长的代码块要用/*------ start: ------*/和/*-------- end:
+ -------*/包围，可以考虑使用大括号来表示注释范围。比如：
 
-* Preprocessor macros are always UPPERCASE.
-  There are a few grandfathered exceptions: assert, panic,
-  static_assert, offsetof.
+缩进风格：大括号的开始在代码块开始的行尾，闭合在和代码块同一缩进的行首，比如
+foo{
+ //something
+}
 
-* Pointer types have spaces: (uint16_t *) not (uint16_t*).
+不要再对boolean值做true、false判断。
 
-* Multi-word names are lower_case_with_underscores.
+减少代码嵌套层次：代码嵌套层次达3层以上时，一般人理解起来都会困难。减少嵌套的方法有很多——合并条件；利用return以省略后面的else；利用子方法。
 
-* Comments in imported code are usually C /* ... */ comments.
-  Comments in new code are C++ style //.
+程序职责单一：关注点分离是软件开发的真理。人类自所以能够完成复杂的工作，就是因为人类能够将工作分解到较小级别的任务上，在做每个任务时关注更少的东西。让程序单元的职责单一，可以使你在编写这段程序时关注更少的东西，从而降低难度，减少出错。
 
-* In a function definition, the function name starts a new line.
-  Then you can grep -n '^foo' */*.c to find the definition of foo.
+变量的声明，初始化和被使用尽量放到一起。
 
-* Functions that take no arguments are declared f(void) not f().
+缩小变量的作用域：能用局部变量的，不要使用实例变量，能用实例变量的，不要使用类变量。变量的生存期越短，以为着它被误用的机会越小，同一时刻程序员要关注的变量的状态越少。实例变量和类变量默认都不是线程安全的，局部变量是线程安全的。
 
-The included .dir-locals.el file will automatically set up the basic
-indentation style in Emacs.
+尽量不要用参数来带回方法运算结果。

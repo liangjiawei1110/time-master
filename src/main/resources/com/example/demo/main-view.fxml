@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MainView">
    <children>
@@ -12,7 +12,10 @@
       <Button layoutX="21.0" layoutY="95.0" mnemonicParsing="false" text="Button" />
       <Button layoutX="21.0" layoutY="132.0" mnemonicParsing="false" text="Button" />
       <Button layoutX="21.0" layoutY="168.0" mnemonicParsing="false" text="Button" />
-      <TextArea layoutX="112.0" layoutY="43.0" prefHeight="336.0" prefWidth="454.0" />
-      <TextField layoutX="112.0" layoutY="14.0" prefHeight="23.0" prefWidth="454.0" />
+      <TextFlow layoutX="96.0" layoutY="18.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TilePane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </TextFlow>
    </children>
 </AnchorPane>

@@ -5,3 +5,4 @@ com\example\demo\EventItem.class
 com\example\demo\ListViewController.class
 module-info.class
 com\example\demo\HelloApplication.class
+com\example\demo\ScheduleViewController.class

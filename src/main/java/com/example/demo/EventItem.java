@@ -19,6 +19,14 @@ public class EventItem {
         this.content = new SimpleStringProperty(content);
         this.isDone = new SimpleBooleanProperty(false);
         this.startTime = new SimpleObjectProperty<LocalDate>(LocalDate.of(2022,8,11));
+
+    }
+    public EventItem(String title,String content,LocalDate someDay){
+        this.title = new SimpleStringProperty(title);
+        this.content = new SimpleStringProperty(content);
+        this.isDone = new SimpleBooleanProperty(false);
+        this.startTime = new SimpleObjectProperty<LocalDate>(someDay);
+
     }
     public String getTitle(){
         return title.get();

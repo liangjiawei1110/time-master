@@ -1,8 +1,10 @@
 com\example\demo\MainController.class
 com\example\demo\HelloController.class
 com\example\demo\DateUtil.class
+com\example\demo\MainApp.class
 com\example\demo\EventItem.class
 com\example\demo\ListViewController.class
 module-info.class
-com\example\demo\HelloApplication.class
+com\example\demo\EventList.class
 com\example\demo\ScheduleViewController.class
+com\example\demo\CreateDialogViewController.class

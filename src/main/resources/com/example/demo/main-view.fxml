@@ -20,7 +20,7 @@
          <children>
             <Button layoutX="511.0" layoutY="9.0" mnemonicParsing="false" text="&lt;" />
             <Button layoutX="544.0" layoutY="9.0" mnemonicParsing="false" text="&gt;" />
-            <TextField layoutX="106.0" layoutY="9.0" prefHeight="23.0" prefWidth="396.0" />
+            <Label layoutX="95.0" layoutY="13.0" prefHeight="15.0" prefWidth="388.0" text="Label" />
          </children>
       </AnchorPane>
    </top>

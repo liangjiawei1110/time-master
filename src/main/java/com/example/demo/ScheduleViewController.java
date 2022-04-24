@@ -2,10 +2,15 @@ package com.example.demo;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ScheduleViewController {
     @FXML
@@ -28,26 +33,43 @@ public class ScheduleViewController {
     private Button button9;
 
 
-    private HelloApplication mainApp;
-    private ObservableList<EventItem> eventList;
+    private MainApp mainApp;
+    private ObservableList<ObservableList<EventItem>> eventList;
     @FXML
     private ArrayList<Button> buttonList = new ArrayList<Button>();
 
     @FXML
     public void showEventList() {
         this.eventList = mainApp.geteventList();
-        Iterator<EventItem> it = eventList.iterator();
+        var it = eventList.iterator();
         int i = 0;
-        for (Button button : buttonList) {
-            EventItem temp = it.next();
-            String data = temp.getStartTime().plusDays(i) + "\n" + temp.getTitle() + "\n" + temp.getContent();
-            button.setText(data);
-            i++;
+        for (var button : buttonList) {
+            if(!it.hasNext()){
+                break;
+            }
+            var list = it.next();
+            String text = "";
+            for (var e : list) {
+                text += e.getTitle() + e.getContent() + "\n";
+            }
+            button.setText(text);
         }
+
+    }
+    @FXML
+    private void onButtonClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("schedule_dialog-view.fxml"));
+        AnchorPane page  =   loader.load();
+        Stage dialogStage = new Stage();
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(mainApp.getStage());
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        dialogStage.showAndWait();
     }
 
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException{
         buttonList.add(button1);
         buttonList.add(button2);
         buttonList.add(button3);
@@ -65,7 +87,7 @@ public class ScheduleViewController {
 
     }
 
-    public void setMainApp(HelloApplication mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,7 +23,7 @@ public class EventList {
     }
 
     //更新时间
-    public void update() {
+    public void update() throws IOException {
 
         nowDate = LocalDate.now();
         mainApp.updateApp();
@@ -31,20 +32,21 @@ public class EventList {
     //获取某一天的所有事件,方便显示
     public ArrayList<EventItem> getEvents(LocalDate someDay) {
         for (var it : eventItemArrayList) {
-            if (it.get(0).getStartTime().equals(someDay)) {
+            if (!it.isEmpty() && it.get(0).getStartTime().equals(someDay)) {
                 return it;
             }
         }
-        //找不到时返回空值
-        return null;
+        //找不到时返回空数组
+        return new ArrayList<EventItem>();
     }
 
     ///添加一个事件在某一天
-    public void addEvents(EventItem eventItem) {
+    public void addEvents(EventItem eventItem) throws IOException{
 
         LocalDate someDay = eventItem.getStartTime();
+
         for (var it : eventItemArrayList) {
-            if (it.get(0).getStartTime().equals(someDay) ) {
+            if (!it.isEmpty() && it.get(0).getStartTime().equals(someDay) ) {
                 it.add(eventItem);
                 return;
             }
@@ -52,25 +54,25 @@ public class EventList {
         ArrayList<EventItem> events = new ArrayList<>();
         events.add(eventItem);
         eventItemArrayList.add(events);
-        mainApp.updateApp();
+//        mainApp.updateApp();
     }
 
 
     //删除某一天的某一事件
-    public void deleteEvent(int eventIndex, LocalDate someDay) {
+    public void deleteEvent(int eventIndex, LocalDate someDay)throws IOException {
         for (var it : eventItemArrayList) {
-            if (it.get(0).getStartTime().equals(someDay)) {
+            if (!it.isEmpty() && it.get(0).getStartTime().equals(someDay)) {
                 it.remove(eventIndex);
                 return;
             }
         }
 
 
-        mainApp.updateApp();
+//        mainApp.updateApp();
     }
 
     //修改某天的某个事件
-    public void updateEvent(int eventIndex, EventItem eventItem) {
+    public void updateEvent(int eventIndex, EventItem eventItem) throws IOException{
         LocalDate someDay = eventItem.getStartTime();
         for (var it : eventItemArrayList) {
             if (it.get(0).getStartTime().equals(someDay)) {
@@ -82,9 +84,12 @@ public class EventList {
         }
 
 
-        mainApp.updateApp();
+//        mainApp.updateApp();
     }
 
+    public Deque<ArrayList<EventItem>> getEventItemArrayList() {
+        return eventItemArrayList;
+    }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;

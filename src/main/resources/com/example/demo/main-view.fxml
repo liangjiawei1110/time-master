@@ -7,20 +7,19 @@
    <left>
       <AnchorPane prefHeight="360.0" prefWidth="104.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="25.0" layoutY="26.0" mnemonicParsing="false" onAction="#onScheduleButtonClick" text="日程" />
-            <Button layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#onListButtonClick" text="清单" />
-            <Button layoutX="25.0" layoutY="95.0" mnemonicParsing="false" text="倒计时" />
-            <Button layoutX="25.0" layoutY="128.0" mnemonicParsing="false" text="事件提醒" />
-            <Button layoutX="25.0" layoutY="157.0" mnemonicParsing="false" text="待定" />
+            <Button layoutX="25.0" layoutY="26.0" mnemonicParsing="false" onAction="#onScheduleButtonClick" prefHeight="23.0" prefWidth="52.0" text="日程" />
+            <Button layoutX="25.0" layoutY="61.0" mnemonicParsing="false" onAction="#onListButtonClick" prefHeight="23.0" prefWidth="52.0" text="清单" />
+            <Button layoutX="25.0" layoutY="95.0" mnemonicParsing="false" onAction="#onCountdownButtonClick" text="倒计时" />
+            <Button layoutX="25.0" layoutY="128.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="53.0" text="待定" />
          </children>
       </AnchorPane>
    </left>
    <top>
       <AnchorPane prefHeight="40.0" prefWidth="538.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="511.0" layoutY="9.0" mnemonicParsing="false" text="&lt;" />
-            <Button layoutX="544.0" layoutY="9.0" mnemonicParsing="false" text="&gt;" />
-            <Label layoutX="95.0" layoutY="13.0" prefHeight="15.0" prefWidth="388.0" text="Label" />
+            <Button layoutX="486.0" layoutY="9.0" mnemonicParsing="false" onAction="#onLeftShiftButtonClick" prefHeight="23.0" prefWidth="50.0" text="&lt;" />
+            <Button layoutX="544.0" layoutY="9.0" mnemonicParsing="false" onAction="#onRightShiftButtonClick" prefHeight="23.0" prefWidth="50.0" text="&gt;" />
+            <Label fx:id="countDownLabel" layoutX="95.0" layoutY="13.0" prefHeight="15.0" prefWidth="388.0" />
          </children>
       </AnchorPane>
    </top>

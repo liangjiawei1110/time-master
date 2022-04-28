@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.EventViewController">
+   <children>
+      <HBox prefHeight="83.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="titleTextField" prefHeight="83.0" prefWidth="419.0" />
+            <CheckBox fx:id="checkBox" mnemonicParsing="false" prefHeight="86.0" prefWidth="126.0" text="是否完成" />
+         </children></HBox>
+      <Separator prefWidth="200.0" />
+      <Label fx:id="beginTimeLabel" prefHeight="70.0" prefWidth="480.0" text="起始时间" />
+      <Label fx:id="finishTimeLabel" prefHeight="70.0" prefWidth="480.0" text="结束时间" />
+      <Separator prefHeight="0.0" prefWidth="600.0" />
+      <TextField fx:id="contentTextField" prefHeight="79.0" prefWidth="600.0" />
+      <Separator prefWidth="200.0" />
+      <AnchorPane prefHeight="100.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="177.0" layoutY="38.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" text="删除" />
+            <Button layoutX="290.0" layoutY="38.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="取消" />
+            <Button layoutX="417.0" layoutY="38.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="保存" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

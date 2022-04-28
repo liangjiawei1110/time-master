@@ -3,6 +3,7 @@ package com.example.demo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ class EventListTest {
     EventList eventList;
     MainApp mainApp;
     @BeforeEach
-    void setUp() {
+    void setUp() throws IOException{
         mainApp = new MainApp();
         eventList = new EventList();
         eventList.setMainApp(mainApp);
@@ -57,7 +58,7 @@ class EventListTest {
     }
 
     @Test
-    void addEvents() {
+    void addEvents() throws IOException{
         LocalDate nowDate = LocalDate.now();
         ArrayList<EventItem> events = new ArrayList<>();
         eventList.addEvents(new EventItem("复习英语","",nowDate));
@@ -77,7 +78,7 @@ class EventListTest {
     }
 
     @Test
-    void deleteEvent() {
+    void deleteEvent() throws IOException {
         LocalDate nowDate = LocalDate.now();
         ArrayList<EventItem> events = new ArrayList<>();
         eventList.deleteEvent(0,nowDate);
@@ -89,7 +90,7 @@ class EventListTest {
     }
 
     @Test
-    void updateEvent() {
+    void updateEvent() throws IOException{
         ArrayList<EventItem> events = new ArrayList<>();
         LocalDate nowDate = LocalDate.now();
         eventList.updateEvent(0,new EventItem("起床","",nowDate.plusDays(3)));

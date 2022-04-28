@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="361.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ScheduleViewController">
+<AnchorPane prefHeight="429.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ScheduleViewController">
    <children>
-      <GridPane layoutX="81.0" layoutY="65.0" prefHeight="361.0" prefWidth="584.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <HBox prefWidth="522.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <VBox fx:id="vBox1" prefHeight="361.0" prefWidth="170.0">
+               <children>
+                  <Label fx:id="label1" prefHeight="35.0" prefWidth="166.0" text="Label" />
+                  <Separator prefWidth="200.0" />
+               </children></VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox fx:id="vBox2" prefHeight="361.0" prefWidth="170.0">
+               <children>
+                  <Label fx:id="label2" prefHeight="35.0" prefWidth="166.0" text="Label" />
+                  <Separator prefHeight="3.0" prefWidth="171.0" />
+               </children></VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox fx:id="vBox3" prefHeight="361.0" prefWidth="170.0">
+               <children>
+                  <Label fx:id="label3" prefHeight="35.0" prefWidth="179.0" text="Label" />
+                  <Separator prefHeight="0.0" prefWidth="207.0" />
+               </children></VBox>
          </children>
-      </GridPane>
+      </HBox>
+      <Separator layoutX="-6.0" layoutY="360.0" prefHeight="3.0" prefWidth="522.0" />
+      <Button layoutX="402.0" layoutY="382.0" mnemonicParsing="false" onAction="#onCreateButtonClick" prefHeight="23.0" prefWidth="90.0" text="新建" textOverrun="CLIP" />
    </children>
 </AnchorPane>

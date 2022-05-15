@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -16,6 +18,17 @@ public class ListViewController {
     private VBox box1;
     @FXML
     private VBox box2;
+
+    @FXML
+    private ScrollPane scrollPane1;
+    @FXML
+    private ScrollPane scrollPane2;
+    @FXML
+    private ListView listView1;
+    @FXML
+    private ListView listView2;
+
+
     private MainApp mainApp;
     private EventList eventList;
     private MainController mainController;
@@ -28,23 +41,29 @@ public class ListViewController {
     }
 
     public void init() {
-        box1.getChildren().clear();
-        box2.getChildren().clear();
-        for(var it: eventList.getEventItemArrayList()){
-            for( var e : it){
-                if(e.isDone()){
-                    Button button = new Button( e.getStartTime()+e.getTitle() );
+        listView1.getItems().clear();
+        listView2.getItems().clear();
+//        box1.getChildren().clear();
+//        box2.getChildren().clear();
+        for (var it : eventList.getEventItemArrayList()) {
+            for (var e : it) {
+                if (e.isDone()) {
+                    Button button = new Button(e.getStartTime() + e.getTitle());
                     button.setOnAction(event -> {
-                        box1.getChildren().remove(button);
+                        listView1.getItems().remove(button);
+                        e.setIsDone(false);
+                        listView2.getItems().add(button);
 
                     });
-                    box1.getChildren().add(button);
-                }else{
-                    Button button = new Button( e.getStartTime()+e.getTitle() );
+                    listView1.getItems().add(button);
+                } else {
+                    Button button = new Button(e.getStartTime() + e.getTitle());
                     button.setOnAction(event -> {
-                        box2.getChildren().remove(button);
+                        listView2.getItems().remove(button);
+                        e.setIsDone(true);
+                        listView1.getItems().add(button);
                     });
-                    box2.getChildren().add(button);
+                    listView2.getItems().add(button);
                 }
             }
         }

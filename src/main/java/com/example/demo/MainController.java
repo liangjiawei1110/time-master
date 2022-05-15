@@ -37,6 +37,9 @@ public class MainController {
         scheduleViewController.setMainApp(mainApp);
         scheduleViewController.showEventList();
         onShowDate = LocalDate.now();
+        if(countDownLabel.getText()==""){
+            countDownLabel.setText("当前暂无事件");
+        }
         isScheduleView = true;
     }
 
